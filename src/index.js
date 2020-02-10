@@ -3,6 +3,7 @@ import React from "react";
 import PWAPrompt from "./components/PWAPrompt";
 
 const deviceCheck = () => {
+  if (typeof window === 'undefined') return false;
   const isiOS = /iphone|ipad|ipod/.test(
     window.navigator.userAgent.toLowerCase()
   );
@@ -26,6 +27,8 @@ export default ({
   delay = 1000,
   debug = false
 }) => {
+  if (typeof window === 'undefined') return null;
+
   let promptData = JSON.parse(localStorage.getItem("iosPwaPrompt"));
 
   if (promptData === null) {

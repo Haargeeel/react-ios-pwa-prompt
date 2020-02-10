@@ -16,6 +16,8 @@ const PWAPrompt = ({
   promptData,
   maxVisits
 }) => {
+  if (typeof window === 'undefined') return null;
+
   const [isVisible, setVisibility] = useState(!Boolean(delay));
 
   useEffect(() => {
